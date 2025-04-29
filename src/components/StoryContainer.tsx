@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import IntroScreen from './story/IntroScreen';
 import Chapter from './story/Chapter';
 import FinalCard from './story/FinalCard';
+import AudioPlayer from './AudioPlayer';
 
 export type ChapterId = 'intro' | 'chapter1' | 'chapter2' | 'chapter3' | 'finalCard';
 
@@ -99,6 +100,7 @@ const StoryContainer: React.FC = () => {
       <div className="story-container">
         {renderCurrentChapter()}
       </div>
+      <AudioPlayer />
     </div>
   );
 };
