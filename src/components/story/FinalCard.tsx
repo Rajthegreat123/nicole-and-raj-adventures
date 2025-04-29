@@ -53,7 +53,7 @@ const FinalCard: React.FC<FinalCardProps> = ({ goBack }) => {
           </p>
           
           <p className="text-xl mb-4">
-            Papi chulo, it's crazy how we've known each other since reception, and I'm honestly so happy with how we've grown into who we are today. I remember when you used to harass me (you still do), and now we're the bestest of friends.
+            The baddest good boy, it's crazy how we've known each other since reception, and I'm honestly so happy with how we've grown into who we are today. I remember when you used to harass me (you still do), and now we're the bestest of friends.
           </p>
           
           <p className="text-xl mb-4">
