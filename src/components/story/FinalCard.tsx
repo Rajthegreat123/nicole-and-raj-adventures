@@ -26,6 +26,27 @@ const FinalCard: React.FC<FinalCardProps> = ({ goBack }) => {
       >
         <div className="text-center">
           <h3 className="text-3xl font-bold text-story-primary mb-6">To My Dearest Friend</h3>
+
+          {/* Polaroid image */}
+          <motion.div 
+            className="relative mx-auto mb-8 w-64 bg-white p-3 shadow-lg" 
+            style={{ 
+              transform: "rotate(-3deg)",
+              maxWidth: "280px" 
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.5 }}
+          >
+            <img 
+              src="/lovable-uploads/31456824-25ef-432b-b3d6-68081c947e66.png" 
+              alt="Two friends together" 
+              className="w-full mb-2"
+            />
+            <p className="text-center text-gray-800 font-handwriting text-lg pt-1 pb-3">
+              2 Giga Chads
+            </p>
+          </motion.div>
           
           <p className="text-xl mb-4">
             Heyy boyyy,

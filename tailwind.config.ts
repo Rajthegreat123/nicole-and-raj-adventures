@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,6 +18,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				story: ['"Comic Neue"', 'cursive'],
+				title: ['"Fredoka One"', 'cursive'],
+				handwriting: ['"Comic Neue"', 'cursive']
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -72,10 +76,6 @@ export default {
 					button: '#8B5CF6',
 					'button-hover': '#7C3AED'
 				}
-			},
-			fontFamily: {
-				story: ['"Comic Neue"', 'cursive'],
-				title: ['"Fredoka One"', 'cursive']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
