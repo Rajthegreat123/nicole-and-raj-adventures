@@ -28,25 +28,20 @@ const FinalCard: React.FC<FinalCardProps> = ({ goBack }) => {
           <h3 className="text-3xl font-bold text-story-primary mb-6">To My Dearest Friend</h3>
           
           <p className="text-xl mb-4">
-            From Roman Ridge to today, our friendship has been one wild adventure.
+            Heyy boyyy,
           </p>
           
           <p className="text-xl mb-4">
-            Through Minecraft builds never completed, and endless inside jokes,
-            you've been the Raj to my Nicole – the friend who made every moment memorable.
+            Papi chulo, it's crazy how we've known each other since reception, and I'm honestly so happy with how we've grown into who we are today. I remember when you used to harass me (you still do), and now we're the bestest of friends.
           </p>
           
           <p className="text-xl mb-4">
-            Even when I was being a bit of a bully (sorry about that),
-            you saw the real me, and I'm forever grateful for your forgiveness and friendship.
+            But you're more than just my best friend; you're someone who's made my life brighter, sillier, and way more meaningful. Thank you for always being there. Thank you for being my best friend.
           </p>
           
           <p className="text-xl font-bold text-story-secondary mt-8">
-            Here's to our iconic friendship – may it continue for many more chapters to come!
+            - Raj
           </p>
-          
-          <p className="mt-6 text-lg italic">With love and laughter,</p>
-          <p className="text-xl font-bold">Nicole</p>
         </div>
       </motion.div>
       

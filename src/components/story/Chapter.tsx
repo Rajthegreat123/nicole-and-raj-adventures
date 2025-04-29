@@ -42,8 +42,9 @@ const Chapter: React.FC<ChapterProps> = ({
   };
 
   const handleBack = () => {
+    // Instead of going back to previous chapter, just reset the choice selection
+    // to return to the prompt screen within the current chapter
     setSelectedChoice(null);
-    goBack();
   };
   
   return (
