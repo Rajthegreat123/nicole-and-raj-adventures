@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
+import { toast } from "@/components/ui/use-toast";
 
 const AudioPlayer: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -8,8 +9,9 @@ const AudioPlayer: React.FC = () => {
   const [isMuted, setIsMuted] = useState(false);
 
   useEffect(() => {
-    // Create audio element
-    const audio = new Audio("https://www.youtube.com/embed/0GwZvyT5pKc?autoplay=1");
+    // Use a direct audio file URL instead of YouTube embed
+    // This is the audio file for "Little Dark Age" by MGMT
+    const audio = new Audio("https://audio.jukehost.co.uk/JEA4mBcFinDJnwcDuqLIiKNlEqDJ1bfK");
     audioRef.current = audio;
     audio.loop = true;
     audio.volume = 0.3; // Set initial volume to 30%
@@ -21,10 +23,19 @@ const AudioPlayer: React.FC = () => {
       playPromise
         .then(() => {
           setIsPlaying(true);
+          toast({
+            title: "Music started",
+            description: "Background music is now playing"
+          });
         })
         .catch(error => {
           console.log("Auto-play was prevented by the browser:", error);
           setIsPlaying(false);
+          toast({
+            variant: "destructive",
+            title: "Audio couldn't play automatically",
+            description: "Click the sound button to start the music"
+          });
         });
     }
     
@@ -35,21 +46,43 @@ const AudioPlayer: React.FC = () => {
     };
   }, []);
 
+  const togglePlayPause = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch(error => {
+          console.log("Play was prevented:", error);
+          toast({
+            variant: "destructive",
+            title: "Couldn't play audio",
+            description: "There was an issue playing the audio file"
+          });
+        });
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   const toggleMute = () => {
     if (audioRef.current) {
       audioRef.current.muted = !audioRef.current.muted;
       setIsMuted(!isMuted);
+      
+      toast({
+        description: isMuted ? "Sound turned on" : "Sound muted"
+      });
     }
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-50 flex gap-2">
       <button 
-        onClick={toggleMute}
+        onClick={togglePlayPause}
         className="bg-story-primary text-white p-3 rounded-full shadow-lg hover:bg-story-button-hover transition-all"
-        aria-label={isMuted ? "Unmute background music" : "Mute background music"}
+        aria-label={isPlaying ? "Pause background music" : "Play background music"}
       >
-        {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+        {isPlaying ? <Volume2 size={20} /> : <VolumeX size={20} />}
       </button>
     </div>
   );
